@@ -1,0 +1,63 @@
+spring: 
+  profiles:
+     active: dev
+---
+server:
+  port: 8001
+  #mybatis配置
+mybatis:
+  type-aliases-package: com.xuyuan.springcloud.pojo
+  config-location: classpath:mybatisa/mybatis-config.xml
+  mapper-locations: classpath:mybatisa/mapper/*.xml
+  #spring的配置
+spring:
+  profiles:dev
+  application:
+    name: springcloud-config-dept
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/db01?serverTimezone=GMT%2B8&characterEncoding=utf-8&useUnicode=true
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  #Eureka 的配置 服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/, http://localhost:7002/eureka/
+#  instance:
+#    instance-id: springcloud-provider-dept-8001   改变id
+#info 配置一些谁写的微服务
+info:
+  app.name: xuyuan-springcloud
+  company.name: blog.xuyuan.studay.com
+---
+server:
+  port: 8001
+  #mybatis配置
+mybatis:
+  type-aliases-package: com.xuyuan.springcloud.pojo
+  config-location: classpath:mybatisa/mybatis-config.xml
+  mapper-locations: classpath:mybatisa/mapper/*.xml
+  #spring的配置
+spring:
+  profiles:dev
+  application:
+    name: springcloud-config-dept
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/db01?serverTimezone=GMT%2B8&characterEncoding=utf-8&useUnicode=true
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  #Eureka 的配置 服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/, http://localhost:7002/eureka/
+#  instance:
+#    instance-id: springcloud-provider-dept-8001   改变id
+#info 配置一些谁写的微服务
+info:
+  app.name: xuyuan-springcloud
+  company.name: blog.xuyuan.studay.com
